@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b3a">
+  <meta name="description" content="Shop fresh vegetables, fruits and seafood from JIRHU fresh in Diphu.">
+  <title>JIRHU fresh | Quality Product</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="JIRHU fresh home">
+      <span class="brand-mark">🌿</span>
+      <span><strong>JIRHU fresh</strong><small>QUALITY PRODUCT</small></span>
+    </a>
+    <button id="installBtn" class="install-btn" hidden>Install app</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">YOUR LOCAL FRESH MARKET</p>
+        <h1>Fresh choices.<br><em>Every day.</em></h1>
+        <p>Shop vegetables, fruits and seafood from JIRHU fresh.</p>
+        <span class="delivery-note">🚚 Free delivery initially · Shop pickup available</span>
+      </div>
+      <div class="hero-art" aria-hidden="true">🥬🍅🥕</div>
+    </section>
+
+    <section class="toolbar">
+      <label class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search vegetables, fruits..." aria-label="Search products"></label>
+      <div id="categories" class="categories" aria-label="Product categories"></div>
+    </section>
+
+    <section class="section-heading">
+      <div><p class="eyebrow">FRESH FROM OUR SHOP</p><h2>Shop products</h2></div>
+      <span id="productCount" class="muted"></span>
+    </section>
+    <section id="productGrid" class="product-grid" aria-live="polite"></section>
+
+    <section class="how-section">
+      <h2>Easy shopping, your way</h2>
+      <div class="how-grid">
+        <div><span>🛒</span><strong>Choose products</strong><small>Add items to your cart.</small></div>
+        <div><span>📍</span><strong>Choose fulfilment</strong><small>Home delivery or shop pickup.</small></div>
+        <div><span>💬</span><strong>Order on WhatsApp</strong><small>We confirm your order personally.</small></div>
+      </div>
+    </section>
+  </main>
+
+  <button id="cartFab" class="cart-fab" aria-label="Open shopping cart">🛍️ <span>Cart</span><b id="cartCount">0</b></button>
+
+  <div id="cartBackdrop" class="backdrop" hidden></div>
+  <aside id="cartPanel" class="cart-panel" aria-label="Shopping cart" aria-modal="true" role="dialog" hidden>
+    <div class="cart-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your cart</h2></div><button id="closeCart" class="icon-btn" aria-label="Close cart">✕</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-bottom">
+      <div class="total-row"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+      <p class="small-muted">Final total and availability will be confirmed by our team on WhatsApp.</p>
+      <button id="checkoutBtn" class="primary-btn" disabled>Continue to checkout →</button>
+    </div>
+  </aside>
+
+  <div id="checkoutBackdrop" class="backdrop" hidden></div>
+  <section id="checkoutModal" class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" hidden>
+    <div class="cart-head"><div><p class="eyebrow">ALMOST THERE</p><h2 id="checkoutTitle">Delivery details</h2></div><button id="closeCheckout" class="icon-btn" aria-label="Close checkout">✕</button></div>
+    <form id="checkoutForm">
+      <label>Your name<input name="customerName" autocomplete="name" required placeholder="Enter your name"></label>
+      <label>Mobile number<input name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+() -]{8,16}" placeholder="Your contact number"></label>
+      <fieldset><legend>How would you like your order?</legend>
+        <label class="choice"><input type="radio" name="fulfilment" value="Home delivery" checked> Home delivery</label>
+        <label class="choice"><input type="radio" name="fulfilment" value="Shop pickup"> Shop pickup</label>
+      </fieldset>
+      <label id="addressField">Delivery address<textarea name="address" rows="2" placeholder="House, locality, landmark, Diphu"></textarea></label>
+      <label>Additional instructions (optional)<textarea name="notes" rows="2" placeholder="Any preferences or instructions"></textarea></label>
+      <div class="checkout-summary"><span>Cart subtotal</span><strong id="checkoutSubtotal">₹0</strong></div>
+      <p class="small-muted">Free delivery initially. We will confirm product availability and the final amount before processing.</p>
+      <button class="primary-btn" type="submit">Send order on WhatsApp <span>↗</span></button>
+    </form>
+  </section>
+
+  <footer><strong>JIRHU fresh</strong> · Quality Product <span>Serving Diphu</span></footer>
+  <script src="./products.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
